@@ -7,7 +7,7 @@
  * 
  * Created by Christine Alvarado on April 19, 2014
  * Updated by Hannah Hui and Tim Jiang on February 11, 2022
- * */
+ */
 
 import java.awt.*;
 import java.awt.event.*;
@@ -237,8 +237,8 @@ public class MazeSearchGUI extends JFrame implements ActionListener {
      * 
      * @param row row of the start cell
      * @param col col of the start cell
-     * @return queue of explored cells (in the order of exploration). First 
-     *         cell should be the start cell and last cell should be the 
+     * @return queue of explored cells (in the order of exploration). First
+     *         cell should be the start cell and last cell should be the
      *         finish cell.
      */
     public QueueInterface<Cell> animateCellsBFS(int row, int col) {
@@ -288,8 +288,8 @@ public class MazeSearchGUI extends JFrame implements ActionListener {
      * 
      * @param row row of the start cell
      * @param col col of the start cell
-     * @return queue of explored cells (in the order of exploration). First 
-     *         cell should be the start cell and last cell should be the 
+     * @return queue of explored cells (in the order of exploration). First
+     *         cell should be the start cell and last cell should be the
      *         finish cell.
      */
     public QueueInterface<Cell> animateCellsDFS(int row, int col) {
