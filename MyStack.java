@@ -1,8 +1,7 @@
 /**
- * TODO: Add your file header
- * Name:
- * Email:
- * Sources used: Put "None" if you did not have any external help
+ * Name: Jialin Chen
+ * Email: jic053@ucsd.edu
+ * Sources used: method headers quoted from PA6 Instructions on Canvas
  * 
  * This file contains a MyStack class, which is an implementation for the Stack
  * ADT based on MyDeque. Elements can be added/removed from the queue in a LIFO
@@ -22,7 +21,7 @@ public class MyStack<E> implements StackInterface<E> {
      * @param capacity The max amount of elements this data structure can hold.
      */
     public MyStack(int capacity) {
-        // TODO: Add your implementation here
+        theStack = new MyDeque<>(capacity);
     }
 
     /**
@@ -32,8 +31,7 @@ public class MyStack<E> implements StackInterface<E> {
      */
     @Override
     public boolean empty() {
-        // TODO: Add your implementation here
-        return false;
+        return theStack.size == 0;
     }
 
     /**
@@ -43,7 +41,7 @@ public class MyStack<E> implements StackInterface<E> {
      */
     @Override
     public void push(E element) {
-        // TODO: Add your implementation here
+        theStack.addFirst(element);
     }
 
     /**
@@ -54,8 +52,7 @@ public class MyStack<E> implements StackInterface<E> {
      */
     @Override
     public E pop() {
-        // TODO: Add your implementation here
-        return null;
+        return theStack.removeFirst();
     }
 
     /**
@@ -66,8 +63,7 @@ public class MyStack<E> implements StackInterface<E> {
      */
     @Override
     public E peek() {
-        // TODO: Add your implementation here
-        return null;
+        return theStack.peekFirst();
     }
 
     /**

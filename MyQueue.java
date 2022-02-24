@@ -1,8 +1,7 @@
 /**
- * TODO: Add your file header
- * Name:
- * Email:
- * Sources used: Put "None" if you did not have any external help
+ * Name: Jialin Chen
+ * Email: jic053@ucsd.edu
+ * Sources used: method headers quoted from PA6 Instructions on Canvas
  * 
  * This file contains a MyQueue class, which is an implementation for the Queue
  * ADT based on MyDeque. Elements can be added/removed from the queue in a FIFO
@@ -22,7 +21,7 @@ public class MyQueue<E> implements QueueInterface<E> {
      * @param capacity The max amount of elements this data structure can hold.
      */
     public MyQueue(int capacity) {
-        // TODO: Add your implementation here
+        theQueue = new MyDeque<>(capacity);
     }
 
     /**
@@ -32,8 +31,7 @@ public class MyQueue<E> implements QueueInterface<E> {
      */
     @Override
     public boolean empty() {
-        // TODO: Add your implementation here
-        return false;
+        return theQueue.size == 0;
     }
 
     /**
@@ -43,7 +41,7 @@ public class MyQueue<E> implements QueueInterface<E> {
      */
     @Override
     public void enqueue(E element) {
-        // TODO: Add your implementation here
+        theQueue.addLast(element);
     }
 
     /**
@@ -55,8 +53,7 @@ public class MyQueue<E> implements QueueInterface<E> {
      */
     @Override
     public E dequeue() {
-        // TODO: Add your implementation here
-        return null;
+        return theQueue.removeLast();
     }
 
     /**
@@ -67,8 +64,7 @@ public class MyQueue<E> implements QueueInterface<E> {
      */
     @Override
     public E peek() {
-        // TODO: Add your implementation here
-        return null;
+        return theQueue.peekFirst();
     }
 
     /**
