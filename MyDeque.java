@@ -48,20 +48,20 @@
         if(element == null)
             throw new NullPointerException();
             
-        if(size == data.length)
+        if(this.size == this.data.length)
             expandCapacity();
 
-        if(size == 0) {
-            data[0] = element;
-            front = 0;
-            rear = 0;
+        if(this.size == 0) {
+            this.data[0] = element;
+            this.front = 0;
+            this.rear = 0;
         }
         else {
-            front = (front - 1 + data.length) % data.length;
-            data[front] = element;
+            this.front = (this.front - 1 + this.data.length) % this.data.length;
+            this.data[front] = element;
         }
 
-        size++;
+        this.size++;
     }
 
     @Override
@@ -69,49 +69,57 @@
         if(element == null)
             throw new NullPointerException();
             
-        if(size == data.length)
+        if(this.size == data.length)
             expandCapacity();
 
-        if(size == 0) {
-            data[0] = element;
-            front = 0;
-            rear = 0;
+        if(this.size == 0) {
+            this.data[0] = element;
+            this.front = 0;
+            this.rear = 0;
         }
         else {
-            rear = (rear + 1) % data.length;
-            data[rear] = element;
+            this.rear = (this.rear + 1) % data.length;
+            this.data[rear] = element;
         }
 
-        size++;
+        this.size++;
     }
 
     @Override
     public E removeFirst() {
-        if(data[front] == null)
+        if(this.size == 0)
+            return null;
+        if(this.data[front] == null)
             return null;
 
         E first = (E)data[front];
-        data[front] = null;
-        front = (front + 1) % data.length;
-        size--;
+        this.data[front] = null;
+        this.size--;
+        if(this.size != 0)
+            this.front = (this.front + 1) % data.length;
         return first;
     }
 
     @Override
     public E removeLast() {
-        if(data[rear] == null)
+        if(this.size == 0)
+            return null;
+        if(this.data[rear] == null)
             return null;
 
         E last = (E)data[rear];
-        data[rear] = null;
-        rear = (rear - 1 + data.length) % data.length;    
-        size--;  
+        this.size--;  
+        this.data[rear] = null;
+        if(this.size != 0)
+        this.rear = (this.rear - 1 + this.data.length) % this.data.length;    
         return last;  
     }
 
     @Override
     public E peekFirst() {
-        if(data[front] == null)
+        if(this.size == 0)
+            return null;
+        if(this.data[front] == null)
             return null;
         else
             return (E)data[front];
@@ -119,10 +127,29 @@
 
     @Override
     public E peekLast() {
-        if(data[rear] == null)
+        if(this.size == 0)
+            return null;
+        if(this.data[rear] == null)
             return null;
         else
             return (E)data[rear];
     }
 
+
+    static void initDeque(MyDeque<Integer> deque, Object[] data, int size, 
+    int front, int rear) {
+        deque.data = data;
+        deque.size = size;
+        deque.front = front;
+        deque.rear = rear;
+    }
+    public static void main (String[] args) {
+
+        MyDeque<Integer> deque = new MyDeque<>(10);
+        // 1, null, null, null, null, null, null, null, null, null
+        Integer[] orig = {  };
+        initDeque(deque, orig, 0, 0, 0);
+        deque.expandCapacity();
+        System.out.println(deque.data+ " / ");
+    }
  }
